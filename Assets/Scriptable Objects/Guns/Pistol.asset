@@ -20,7 +20,7 @@ MonoBehaviour:
   magazineSize: 10
   maxAmmoStash: 40
   currentAmmoStash: 40
-  currentBulletsInMagazine: 8
+  currentBulletsInMagazine: 10
   reloadTime: 1
   isAutomatic: 0
   isBurst: 1
@@ -31,8 +31,6 @@ MonoBehaviour:
   aimSpeed: 13
   playerCamZoomMultiplier: 1.5
   weaponCamZoomMultiplier: 2
-  ADSSensitivityMultiplier: 1.5
-  ADSSwayMultiplier: 1
   damage: 25
   bulletForce: 5
   canBeShot:
@@ -48,10 +46,18 @@ MonoBehaviour:
   returnSpeed: 2
   aimSnappiness: 10
   aimReturnSpeed: 4
-  rotationalKickback: 75
-  rotationalKickbackReturnSpeed: 15
-  positionalKickback: 0.8
-  positionalKickbackReturnSpeed: 1
+  sensitivityMultiplier: 1
+  swayMultiplier: 1
+  aimSensitivityMultiplier: 1
+  aimSwayMultiplier: 1
+  rotKickback: 1
+  aimRotKickback: 1
+  rotKickbackReturnSpeed: 1
+  aimRotKickbackReturnSpeed: 1
+  posKickback: 1
+  aimPosKickback: 1
+  posKickbackReturnSpeed: 1
+  aimPosKickbackReturnSpeed: 1
   magnitude: 0.05
   roughness: 0.5
   fadeInTime: 0.1

@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266222968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1.13, y: 1.13, z: 1.13}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 6
-  height: 0.1
   angle: 80
   scanInterval: 0.2
   playerRef: {fileID: 6881266926077782507}
@@ -812,6 +811,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1347703563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347703564}
+  - component: {fileID: 1347703565}
+  m_Layer: 7
+  m_Name: Navmesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347703564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347703563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5006512736833018735}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1347703565
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347703563}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.25
+  m_Speed: 0.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 500
+  m_StoppingDistance: 1.2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.8
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1404340089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,28 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b63dd2bd15712468be047a9ed59aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!195 &2080321656
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172667706304892}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 0.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 1.2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.8
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!54 &2080321657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1137,7 +1168,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!1 &2137961543
 GameObject:
@@ -3280,6 +3311,7 @@ Transform:
   - {fileID: 549627197}
   - {fileID: 266222969}
   - {fileID: 2137961544}
+  - {fileID: 1347703564}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -539.999, z: 0}
@@ -5597,7 +5629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052981878155015697}
   m_LocalRotation: {x: 0.49912703, y: -0.50087154, z: -0.49912694, w: 0.5008715}
-  m_LocalPosition: {x: 0.00000004273747, y: 0.87985283, z: -0.050017122}
+  m_LocalPosition: {x: 0, y: 0.87985283, z: -0.050017122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6718,9 +6750,8 @@ GameObject:
   - component: {fileID: 5006512736833018735}
   - component: {fileID: 3166231814510622229}
   - component: {fileID: 2080321657}
-  - component: {fileID: 2080321656}
-  - component: {fileID: 8296172667706304893}
   - component: {fileID: 8296172667706304895}
+  - component: {fileID: 8296172667706304893}
   - component: {fileID: 8296172667706304894}
   m_Layer: 7
   m_Name: Zombie
@@ -6746,7 +6777,7 @@ MonoBehaviour:
   materialList: []
   dissolveRate: 1
   dissolveDelay: 1
-  enemyHealth: 0
+  enemyHealth: 120
   bodyPartHealth: 100
 --- !u!114 &8296172667706304894
 MonoBehaviour:
@@ -6773,10 +6804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e683a6f77d247fb419ec353006336eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navmeshAgent: {fileID: 2080321656}
-  animManager: {fileID: 8296172667706304894}
-  sensor: {fileID: 0}
+  sensor: {fileID: 266222970}
   target: {fileID: 0}
+  animManager: {fileID: 8296172667706304894}
+  anim: {fileID: 0}
+  navmeshAgent: {fileID: 1347703565}
+  rotationSpeed: 1
   currentState: {fileID: 1083138518}
 --- !u!1 &8364456255425146718
 GameObject:

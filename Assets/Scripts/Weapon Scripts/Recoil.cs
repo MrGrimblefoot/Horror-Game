@@ -37,7 +37,6 @@ public class Recoil : MonoBehaviour
                 currentRotation = Vector3.Slerp(currentRotation, targetRotation, gun.snappiness * Time.fixedDeltaTime);
             }
 
-            transform.localRotation = Quaternion.Euler(currentRotation);
         }
 
         recoilResetTimer += Time.deltaTime;
@@ -97,8 +96,16 @@ public class Recoil : MonoBehaviour
                 targetRotation += gun.recoilPattern[currentStep];
             }
 
-            currentGun.Rotate(gun.rotationalKickback / 10f, 0, 0);
-            currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.positionalKickback / 10f;
+            if (isAiming)
+            {
+                currentGun.Rotate(gun.aimRotKickback / 10f, 0, 0);
+                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.aimPosKickback / 10f;
+            }
+            else
+            {
+                currentGun.Rotate(gun.rotKickback / 10f, 0, 0);
+                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.posKickback / 10f;
+            }
         }
         else { return; }
     }

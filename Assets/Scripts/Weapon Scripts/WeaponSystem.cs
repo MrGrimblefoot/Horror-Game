@@ -178,8 +178,16 @@ public class WeaponSystem : MonoBehaviour
                 }
             }
 
-            currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition, Vector3.zero, Time.deltaTime * currentGunData.positionalKickbackReturnSpeed);
-            //currentWeapon.transform.localRotation = Quaternion.Lerp(currentWeapon.transform.localRotation, Quaternion.identity, Time.deltaTime * currentGunData.rotationalKickbackReturnSpeed);
+            if (aiming)
+            {
+                currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
+                    Vector3.zero,Time.deltaTime * currentGunData.aimPosKickbackReturnSpeed);
+            }
+            else
+            {
+                currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
+                    Vector3.zero, Time.deltaTime * currentGunData.posKickbackReturnSpeed);
+            }
         }
     }
 
@@ -293,7 +301,7 @@ public class WeaponSystem : MonoBehaviour
 
     private void Attack()
     {
-        if (shooting == true && aiming == true) { shooting = false; aiming = false; }
+        if (shooting&& aiming) { shooting = false; aiming = false; }
         currentWeapon.GetComponentInChildren<Animator>().SetBool("Light Attack", shooting);
         currentWeapon.GetComponentInChildren<Animator>().SetBool("Heavy Attack", aiming);
     }

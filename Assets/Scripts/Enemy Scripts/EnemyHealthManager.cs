@@ -28,7 +28,7 @@ public class EnemyHealthManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponentInChildren<NavMeshAgent>();
         skinnedMeshRenderer.GetMaterials(materialList);
         anim.enabled = true;
         isDead = false;

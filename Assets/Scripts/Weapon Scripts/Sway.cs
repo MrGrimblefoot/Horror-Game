@@ -55,8 +55,8 @@ public class Sway : MonoBehaviour/*PunCallbacks*/
         Quaternion targetRotation = originRotation * tempXAdj * tempYAdj * tempZAdj;
 
         //rotate towards target rotation
-        if (!gun.aiming) { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * smooth); }
-        else { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.rotationalKickbackReturnSpeed * gun.currentGunData.ADSSwayMultiplier); }
+        if (!gun.aiming) { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.rotKickbackReturnSpeed * gun.currentGunData.swayMultiplier); }
+        else { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.aimRotKickbackReturnSpeed * gun.currentGunData.aimSwayMultiplier); }
     }
     #endregion
 }

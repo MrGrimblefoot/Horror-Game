@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySensor : MonoBehaviour
 {
-    public float radius, height;
+    public float radius;
     [Range(0, 360)]
     public float angle;
     [SerializeField] private float scanInterval;
@@ -51,4 +51,3 @@ public class EnemySensor : MonoBehaviour
     }
 
 }
-/*target.position.y >= transform.position.y*/

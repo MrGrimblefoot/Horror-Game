@@ -11,6 +11,21 @@ public class EnemyChaseState : State
         //If the target gets away, go to the last known position
         //If there is no target, go back to sleep position, or just go back to the sleep state
         //if there is a target, start chasing again
+        ChaseCurrentTarget(stateManager);
+        RotateTowardsCurrentTarget(stateManager);
         return this;
+    }
+
+    private void ChaseCurrentTarget(EnemyStateManager stateManager)
+    {
+        stateManager.anim.SetFloat("Speed", 1);
+    }
+
+    private void RotateTowardsCurrentTarget(EnemyStateManager stateManager)
+    {
+        stateManager.navmeshAgent.enabled = true;
+        stateManager.navmeshAgent.SetDestination(stateManager.target.transform.position);
+        stateManager.transform.rotation = Quaternion.Slerp(stateManager.transform.rotation, stateManager.navmeshAgent.transform.rotation,
+            stateManager.rotationSpeed / Time.deltaTime);
     }
 }

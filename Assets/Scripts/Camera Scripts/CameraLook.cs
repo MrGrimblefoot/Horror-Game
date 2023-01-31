@@ -64,7 +64,7 @@ public class CameraLook : MonoBehaviour
 
         if (weaponController.currentWeapon != null)
         {
-            if (movement.isAiming) { currentLookSensitivity = lookSensitivity / weaponController.currentGunData.ADSSensitivityMultiplier; }
+            if (movement.isAiming) { currentLookSensitivity = lookSensitivity / weaponController.currentGunData.aimSensitivityMultiplier; }
             else { currentLookSensitivity = lookSensitivity; }
         }
 

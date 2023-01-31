@@ -6,18 +6,30 @@ using UnityEngine.AI;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent navmeshAgent;
-    [SerializeField] private EnemyAnimatorManager animManager;
     [SerializeField] private EnemySensor sensor;
     public GameObject target;
+
+    [Header("Animation")]
+    [SerializeField] private EnemyAnimatorManager animManager;
+    public Animator anim;
+
+    [Header("Movement")]
+    public NavMeshAgent navmeshAgent;
+    public float rotationSpeed = 5;
 
     public State currentState;
 
     void Start()
     {
-        navmeshAgent = GetComponent<NavMeshAgent>();
+        navmeshAgent = GetComponentInChildren<NavMeshAgent>();
         animManager = GetComponent<EnemyAnimatorManager>();
         sensor = GetComponentInChildren<EnemySensor>();
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        navmeshAgent.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     void FixedUpdate()
