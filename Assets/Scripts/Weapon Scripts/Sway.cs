@@ -7,13 +7,6 @@ using UnityEngine.InputSystem;
 public class Sway : MonoBehaviour/*PunCallbacks*/
 {
     #region Variables
-    [SerializeField] private float swayIntensity;
-    [Tooltip("This modifies the weapon sway when at the hip. Lower numbers make it less sensitive, and higher numbers make it more sensitive.")]
-    [SerializeField] private float hipSwayModifier = 10;
-    [Tooltip("This modifies the weapon sway when ADSing. Lower numbers make it less sensitive, and higher numbers make it more sensitive.")]
-    [SerializeField] private float ADSSwayModifier = 50;
-    [SerializeField] private float smooth;
-
     private Quaternion originRotation;
     public WeaponSystem gun;
 
@@ -49,14 +42,14 @@ public class Sway : MonoBehaviour/*PunCallbacks*/
     private void UpdateSway()
     {
         //calculate target rotation
-        Quaternion tempXAdj = Quaternion.AngleAxis((!gun.aiming ? swayIntensity * hipSwayModifier : swayIntensity * ADSSwayModifier) * targetXMouse, Vector3.up);
-        Quaternion tempYAdj = Quaternion.AngleAxis((!gun.aiming ? swayIntensity * hipSwayModifier : swayIntensity * ADSSwayModifier) * targetYMouse, Vector3.right);
-        Quaternion tempZAdj = Quaternion.AngleAxis((!gun.aiming ? swayIntensity * hipSwayModifier : swayIntensity * ADSSwayModifier) * targetYMouse, Vector3.right);
+        Quaternion tempXAdj = Quaternion.AngleAxis((!gun.aiming ? (gun.currentGunData.swayIntensity / 50) * gun.currentGunData.rotKickReturnSpeed : (gun.currentGunData.aimSwayIntensity / 50) * gun.currentGunData.aimRotKickReturnSpeed) * targetXMouse, Vector3.up);
+        Quaternion tempYAdj = Quaternion.AngleAxis((!gun.aiming ? (gun.currentGunData.swayIntensity / 50) * gun.currentGunData.rotKickReturnSpeed : (gun.currentGunData.aimSwayIntensity / 50) * gun.currentGunData.aimRotKickReturnSpeed) * targetYMouse, Vector3.right);
+        Quaternion tempZAdj = Quaternion.AngleAxis((!gun.aiming ? (gun.currentGunData.swayIntensity / 50) * gun.currentGunData.rotKickReturnSpeed : (gun.currentGunData.aimSwayIntensity / 50) * gun.currentGunData.aimRotKickReturnSpeed) * targetYMouse, Vector3.right);
         Quaternion targetRotation = originRotation * tempXAdj * tempYAdj * tempZAdj;
 
         //rotate towards target rotation
-        if (!gun.aiming) { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.rotKickbackReturnSpeed * gun.currentGunData.swayMultiplier); }
-        else { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.aimRotKickbackReturnSpeed * gun.currentGunData.aimSwayMultiplier); }
+        if (!gun.aiming) { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.rotKickReturnSpeed); }
+        else { transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * gun.currentGunData.aimRotKickReturnSpeed); }
     }
     #endregion
 }

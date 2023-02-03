@@ -178,16 +178,16 @@ public class WeaponSystem : MonoBehaviour
                 }
             }
 
-            if (aiming)
-            {
-                currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
-                    Vector3.zero,Time.deltaTime * currentGunData.aimPosKickbackReturnSpeed);
-            }
-            else
-            {
-                currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
-                    Vector3.zero, Time.deltaTime * currentGunData.posKickbackReturnSpeed);
-            }
+            //if (aiming)
+            //{
+            //    currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
+            //        Vector3.zero,Time.deltaTime * currentGunData.aimPosKickReturnSpeed * 100);
+            //}
+            //else
+            //{
+            //    currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
+            //        Vector3.zero, Time.deltaTime * currentGunData.posKickReturnSpeed * 100);
+            //}
         }
     }
 

@@ -31,8 +31,8 @@ MonoBehaviour:
   aimSpeed: 1
   playerCamZoomMultiplier: 1
   weaponCamZoomMultiplier: 1
-  ADSSensitivityMultiplier: 1
-  ADSSwayMultiplier: 1
+  sensitivityMultiplier: 1
+  aimSensitivityMultiplier: 1
   damage: 60
   bulletForce: 1
   canBeShot:
@@ -46,10 +46,16 @@ MonoBehaviour:
   returnSpeed: 1
   aimSnappiness: 1
   aimReturnSpeed: 1
-  rotationalKickback: 1
-  rotationalKickbackReturnSpeed: 1
-  positionalKickback: 1
-  positionalKickbackReturnSpeed: 1
+  swayIntensity: 0
+  aimSwayIntensity: 0
+  rotKick: 0
+  rotKickReturnSpeed: 0
+  aimRotKick: 0
+  aimRotKickReturnSpeed: 0
+  posKick: 0
+  posKickReturnSpeed: 0
+  aimPosKick: 0
+  aimPosKickReturnSpeed: 0
   magnitude: 1
   roughness: 1
   fadeInTime: 1

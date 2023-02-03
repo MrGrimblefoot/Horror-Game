@@ -48,26 +48,6 @@ public class Recoil : MonoBehaviour
         //else { Debug.Log("No gun, so can't move gun!"); }
     }
 
-    //public void RecoilFire()
-    //{
-    //    if(gun != null)
-    //    {
-    //        if (weaponScript.aiming)
-    //        {
-    //            targetRotation += new Vector3(gun.aimRecoilX, Random.Range(-gun.aimRecoilY, gun.aimRecoilY), Random.Range(-gun.aimRecoilZ, gun.aimRecoilZ));
-    //            weaponScript.currentWeapon.transform.Rotate(-gun.rotationalKickback / 10f, 0, 0);
-    //            weaponScript.currentWeapon.transform.position -= weaponScript.currentWeapon.transform.forward * gun.positionalKickback / 10f;
-    //        }
-    //        else
-    //        {
-    //            targetRotation += new Vector3(gun.recoilX, Random.Range(-gun.recoilY, gun.recoilY), Random.Range(-gun.recoilZ, gun.recoilZ));
-    //            weaponScript.currentWeapon.transform.Rotate(-gun.rotationalKickback / 5.5f, 0, 0);
-    //            weaponScript.currentWeapon.transform.position -= weaponScript.currentWeapon.transform.forward * gun.positionalKickback / 5.5f;
-    //        }
-    //    }
-    //    //else { Debug.Log("No gun, so can't recoil!"); }
-    //}
-
     public void RecoilFire()
     {
         if(gun != null)
@@ -98,13 +78,13 @@ public class Recoil : MonoBehaviour
 
             if (isAiming)
             {
-                currentGun.Rotate(gun.aimRotKickback / 10f, 0, 0);
-                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.aimPosKickback / 10f;
+                currentGun.Rotate(gun.aimRotKick, 0, 0);
+                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.aimPosKick / 10f;
             }
             else
             {
-                currentGun.Rotate(gun.rotKickback / 10f, 0, 0);
-                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.posKickback / 10f;
+                currentGun.Rotate(gun.rotKick, 0, 0);
+                currentGun.position -= weaponScript.currentWeapon.transform.forward * gun.posKick / 10f;
             }
         }
         else { return; }

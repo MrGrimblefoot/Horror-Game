@@ -54,14 +54,18 @@ public class Weapon : ScriptableObject
     public bool useRecovery;
     #endregion
 
-    #region Aiming
-    [Header("Aiming")]
+    #region Aiming & Camera
+    [Header("Aiming & Camera")]
     [Tooltip("This controls how fast the gun goes to it's ADS and Hipfire positions.")]
     public float aimSpeed;
     [Tooltip("This controls how much the player's camera zooms when you ADS.")]
     public float playerCamZoomMultiplier;
     [Tooltip("This controls how much the weapon camera zooms when you ADS.")]
     public float weaponCamZoomMultiplier;
+    [Tooltip("This controls how much the camera is able to rotate while at hip. The higher the number, the lower the look speed.")]
+    public float sensitivityMultiplier;
+    [Tooltip("This controls how much the camera is able to rotate while ADSing. The higher the number, the lower the look speed.")]
+    public float aimSensitivityMultiplier;
     #endregion
 
     #region Bullet
@@ -94,30 +98,34 @@ public class Weapon : ScriptableObject
     public float aimSnappiness;
     [Tooltip("This is the same as the returnSpeed variable, except for firing when ADS-ing. This effects where the bullet goes.")]
     public float aimReturnSpeed;
-    [Tooltip("This controls how much the camera is able to rotate while at hip. The higher the number, the lower the look speed.")]
-    public float sensitivityMultiplier;
-    [Tooltip("This controls how much the current weapon sways while while at hip.")]
-    public float swayMultiplier;
-    [Tooltip("This controls how much the camera is able to rotate while ADSing. The higher the number, the lower the look speed.")]
-    public float aimSensitivityMultiplier;
-    [Tooltip("This controls how much the current weapon sways wile aiming down sights.")]
-    public float aimSwayMultiplier;
+    #endregion
+
+    #region Sway
+    [Header("Sway")]
+    [Tooltip("This controls how intense the sway is while at hip.")]
+    public float swayIntensity;
+    [Tooltip("This controls how intense the sway is while aiming.")]
+    public float aimSwayIntensity;
     #endregion
 
     #region Kickback
     [Header("Kickback")]
-    [Tooltip("This controls how much the weapon rotates to kicks up visually.")]
-    public float rotKickback;
-    public float aimRotKickback;
-    [Tooltip("This controls how fast the weapon returns from the rotated position to the normal position.")]
-    public float rotKickbackReturnSpeed;
-    public float aimRotKickbackReturnSpeed;
-    [Tooltip("This controls how much the weapon moves to kick back visually.")]
-    public float posKickback;
-    public float aimPosKickback;
-    [Tooltip("This controls how fast the weapon returns from the moved position to the normal position.")]
-    public float posKickbackReturnSpeed;
-    public float aimPosKickbackReturnSpeed;
+    [Tooltip("This controls how much the weapon rotates to kicks up visually when at hip.")]
+    public float rotKick;
+    [Tooltip("This modifies how much the current weapon sways while while at hip.")]
+    public float rotKickReturnSpeed;
+    [Tooltip("This controls how much the weapon rotates to kicks up visually when aiming.")]
+    public float aimRotKick;
+    [Tooltip("This modifies how much the current weapon sways is while aiming")]
+    public float aimRotKickReturnSpeed;
+    [Tooltip("This controls how much the weapon moves to kick back visually when at hip.")]
+    public float posKick;
+    [Tooltip("This controls how fast the weapon returns from the moved position to the normal position when at hip.")]
+    public float posKickReturnSpeed;
+    [Tooltip("This controls how much the weapon moves to kick back visually when aiming.")]
+    public float aimPosKick;
+    [Tooltip("This controls how fast the weapon returns from the moved position to the normal position when aiming.")]
+    public float aimPosKickReturnSpeed;
     #endregion
 
     #region CameraShake
