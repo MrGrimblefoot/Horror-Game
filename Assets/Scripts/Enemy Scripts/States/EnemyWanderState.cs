@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyWanderState : State
 {
-    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyAnimatorManager enemyAnimManager)
+    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyHealthManager healthManager)
     {
         //...
         //...

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
-    public abstract State Tick(EnemyStateManager stateManager, EnemySensor sensor, /*EnemyHealthManager healthManager,*/ EnemyAnimatorManager enemyAnimManager);
+    public abstract State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyHealthManager healthManager);
 }

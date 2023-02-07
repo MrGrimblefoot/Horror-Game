@@ -6,12 +6,16 @@ public class EnemySleepState : State
 {
     public EnemyChaseState chaseState;
 
-    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyAnimatorManager enemyAnimManager)
+    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyHealthManager healthManager)
     {
-        if (sensor.canSeePlayer) { stateManager.target = sensor.playerRef; }
+        if (!healthManager.isDead)
+        {
+            if (sensor.canSeePlayer) { stateManager.target = sensor.playerRef; }
 
-        if(stateManager.target != null) { return chaseState; }
-        
-        else { return this; }
+            if (stateManager.target != null) { return chaseState; }
+
+            else { return this; }
+        }
+        return this;
     }
 }

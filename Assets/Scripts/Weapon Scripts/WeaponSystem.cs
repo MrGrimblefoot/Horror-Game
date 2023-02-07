@@ -279,7 +279,7 @@ public class WeaponSystem : MonoBehaviour
         {
             if (isAiming)
             {
-                tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateADS.position, Time.deltaTime * currentGunData.aimSpeed);
+                tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateADS.position, Time.deltaTime * (currentGunData.aimSpeed * currentGunData.aimPosKickReturnSpeed));
                 //cursor.SetActive(false);
                 if (currentGunData.name != "Sniper")
                 {
@@ -290,7 +290,7 @@ public class WeaponSystem : MonoBehaviour
             }
             else
             {
-                tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateHip.position, Time.deltaTime * currentGunData.aimSpeed);
+                tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateHip.position, Time.deltaTime * (currentGunData.aimSpeed * currentGunData.posKickReturnSpeed));
                 //cursor.SetActive(true);
                 if (currentGunData.name != "Sniper") { targetFOV = normalFOV; weaponTargetFOV = normalFOV; }
                 else { sniperCam.gameObject.SetActive(false); }
@@ -301,7 +301,7 @@ public class WeaponSystem : MonoBehaviour
 
     private void Attack()
     {
-        if (shooting&& aiming) { shooting = false; aiming = false; }
+        if (shooting && aiming) { shooting = false; aiming = false; }
         currentWeapon.GetComponentInChildren<Animator>().SetBool("Light Attack", shooting);
         currentWeapon.GetComponentInChildren<Animator>().SetBool("Heavy Attack", aiming);
     }

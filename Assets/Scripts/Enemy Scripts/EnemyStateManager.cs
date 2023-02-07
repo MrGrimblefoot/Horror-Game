@@ -10,7 +10,7 @@ public class EnemyStateManager : MonoBehaviour
     public GameObject target;
 
     [Header("Animation")]
-    [SerializeField] private EnemyAnimatorManager animManager;
+    [SerializeField] private EnemyHealthManager healthManager;
     public Animator anim;
 
     [Header("Movement")]
@@ -22,7 +22,8 @@ public class EnemyStateManager : MonoBehaviour
     void Start()
     {
         navmeshAgent = GetComponentInChildren<NavMeshAgent>();
-        animManager = GetComponent<EnemyAnimatorManager>();
+        navmeshAgent.enabled = true;
+        healthManager = GetComponent<EnemyHealthManager>();
         sensor = GetComponentInChildren<EnemySensor>();
         anim = GetComponent<Animator>();
     }
@@ -41,7 +42,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         if(currentState != null)
         {
-            State nextState = currentState.Tick(this, sensor, animManager);
+            State nextState = currentState.Tick(this, sensor, healthManager);
             
             if(nextState != null) { SwitchToNextState(nextState); }
         }

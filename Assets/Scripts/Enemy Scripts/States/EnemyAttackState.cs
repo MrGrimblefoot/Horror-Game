@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackState : State
 {
-    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyAnimatorManager enemyAnimManager)
+    public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyHealthManager healthManager)
     {
         //Select one of many attacks based on attack scores
         //If selected attack is invalid, select a new attack

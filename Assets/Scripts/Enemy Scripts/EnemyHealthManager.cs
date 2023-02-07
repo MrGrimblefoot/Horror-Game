@@ -1,35 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyHealthManager : MonoBehaviour
 {
-    public List<Collider> RagdollParts = new List<Collider>();
-    private Animator anim;
-    private Rigidbody rb;
-    private bool isDead;
+    [Header("Health")]
+    public bool isDead;
     public float deathDelay;
-    private SkinnedMeshRenderer skinnedMeshRenderer;
-    [SerializeField] private List<Material> materialList = null;
-    private Material dissolveShaderMat;
-    //private Material dissolveShaderMat2;
-    [SerializeField] private float dissolveRate;
-    private float timer;
-    private bool readyToDissolve;
-    [SerializeField] private float dissolveDelay;
-    NavMeshAgent navMeshAgent;
     public float enemyHealth;
     public float bodyPartHealth = 100;
-    bool test;
+    [SerializeField] private Color fullHealthColor, halfHealthColor, lowHealthColor, deadHealthColor;
+    [SerializeField] private float fullHealthIntensity, halfHealthIntensity, lowHealthIntensity, deadHealthIntensity;
+
+    public List<Collider> RagdollParts = new List<Collider>();
+
+    Material mat1;
+    Material mat2;
+    //Variables
+    NavMeshAgent navMeshAgent;
+    private Animator anim;
+    private Rigidbody rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         navMeshAgent = GetComponentInChildren<NavMeshAgent>();
-        skinnedMeshRenderer.GetMaterials(materialList);
+        mat1 = GetComponentInChildren<SkinnedMeshRenderer>().materials[0];
+        mat2 = GetComponentInChildren<SkinnedMeshRenderer>().materials[1];
         anim.enabled = true;
         isDead = false;
         SetRagdollParts();
@@ -37,27 +35,13 @@ public class EnemyHealthManager : MonoBehaviour
 
     private void Start()
     {
-        //dissolveShaderMat = materialList[0];
-        //dissolveShaderMat.SetFloat("_Dissolve_Ammount", 0);
-        //dissolveShaderMat2 = materialList[1];
-        //dissolveShaderMat2.SetFloat("_Dissolve_Ammount", 0);
-        //timer = 0;
+        HandleColorChange();
     }
 
-    private void Update()
-    {
-        //if (isDead)
-        //{
-        //    Invoke("ReadyToDissolve", dissolveDelay);
-        //}
-        //if (readyToDissolve)
-        //{
-        //    timer += Time.deltaTime * dissolveRate;
-        //    dissolveShaderMat.SetFloat("_Dissolve_Ammount", timer);
-        //    //dissolveShaderMat2.SetFloat("_Dissolve_Ammount", timer);
-        //    if (timer >= 1) { timer = 1; Destroy(this.gameObject); }
-        //}
-    }
+    //private void Update()
+    //{
+
+    //}
 
     void SetRagdollParts()
     {
@@ -73,13 +57,48 @@ public class EnemyHealthManager : MonoBehaviour
             enemyHealth -= damage;
             anim.SetTrigger("TakeHit");
             print("I took " + damage + " damage!");
+            HandleColorChange();
 
             if (enemyHealth <= 0)
             {
                 enemyHealth = 0;
                 Die();
             }
+            else { anim.SetTrigger("TakeHit"); }
         }
+    }
+
+    private void HandleColorChange()
+    {
+        mat1.EnableKeyword("_EMISSION");
+        mat2.EnableKeyword("_EMISSION");
+
+        if (enemyHealth == 100)
+        {
+            print("Full Health");
+            mat1.SetColor("_EmissionColor", fullHealthColor * fullHealthIntensity);
+            mat2.SetColor("_EmissionColor", fullHealthColor * fullHealthIntensity);
+        }
+        else if(enemyHealth < 100 && enemyHealth > 25)
+        {
+            print("Mid Health");
+            mat1.SetColor("_EmissionColor", halfHealthColor * halfHealthIntensity);
+            mat2.SetColor("_EmissionColor", halfHealthColor * halfHealthIntensity);
+        }
+        else if(enemyHealth < 26 && enemyHealth > 0)
+        {
+            print("Low Health");
+            mat1.SetColor("_EmissionColor", lowHealthColor * lowHealthIntensity);
+            mat2.SetColor("_EmissionColor", lowHealthColor * lowHealthIntensity);
+        }
+        else if(enemyHealth <= 0)
+        {
+            print("Dead");
+            mat1.SetColor("_EmissionColor", deadHealthColor * deadHealthIntensity);
+            mat2.SetColor("_EmissionColor", deadHealthColor * deadHealthIntensity);
+        }
+
+        DynamicGI.UpdateEnvironment();
     }
 
     public void Die()

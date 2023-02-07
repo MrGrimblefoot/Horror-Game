@@ -30,11 +30,13 @@ public class Recoil : MonoBehaviour
             {
                 targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, gun.aimReturnSpeed * Time.deltaTime);
                 currentRotation = Vector3.Slerp(currentRotation, targetRotation, gun.aimSnappiness * Time.fixedDeltaTime);
+                transform.localRotation = Quaternion.Euler(currentRotation);
             }
             else
             {
                 targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, gun.returnSpeed * Time.deltaTime);
                 currentRotation = Vector3.Slerp(currentRotation, targetRotation, gun.snappiness * Time.fixedDeltaTime);
+                transform.localRotation = Quaternion.Euler(currentRotation);
             }
 
         }
@@ -42,7 +44,7 @@ public class Recoil : MonoBehaviour
         recoilResetTimer += Time.deltaTime;
         if(recoilResetTimer >= 0.7f)
         {
-            if (!weaponScript.shooting && !hasResetRecoilPattern) { hasResetRecoilPattern = true;/* print("recoil pattern reset!");*/ }
+            if (!weaponScript.shooting && !hasResetRecoilPattern) { currentStep = 0; hasResetRecoilPattern = true;/* print("recoil pattern reset!");*/ }
             recoilResetTimer = 0;
         }
         //else { Debug.Log("No gun, so can't move gun!"); }
