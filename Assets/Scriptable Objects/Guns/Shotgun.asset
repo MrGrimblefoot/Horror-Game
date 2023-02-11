@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   gunName: Shotgun
-  prefab: {fileID: 3326953236660222628, guid: 8305a12b29fe0e94289b1f7d74be3df8, type: 3}
+  prefab: {fileID: 4648052329620452376, guid: 6ee8238658bd7ff4b87e42217211c7fc, type: 3}
   bulletSpread: 12
-  fireRate: 0.7
+  fireRate: 0.4
   isMelee: 0
-  magazineSize: 48
-  maxAmmoStash: 240
-  currentAmmoStash: 240
-  currentBulletsInMagazine: 48
-  reloadTime: 1
+  magazineSize: 24
+  maxAmmoStash: 144
+  currentAmmoStash: 88
+  currentBulletsInMagazine: 24
+  reloadTime: 2
   isAutomatic: 0
   isBurst: 1
   timeBetweenBullets: 0
@@ -31,13 +31,13 @@ MonoBehaviour:
   aimSpeed: 13
   playerCamZoomMultiplier: 1.5
   weaponCamZoomMultiplier: 2
-  ADSSensitivityMultiplier: 1.5
-  ADSSwayMultiplier: 0.1
-  damage: 10
+  sensitivityMultiplier: 1
+  aimSensitivityMultiplier: 1
+  damage: 20
   bulletForce: 5
   canBeShot:
     serializedVersion: 2
-    m_Bits: 4225
+    m_Bits: 4481
   trailTime: 1
   randomizeRecoil: 0
   randomRecoilConstraints: {x: 0.1, y: 0.1}
@@ -48,11 +48,17 @@ MonoBehaviour:
   returnSpeed: 2
   aimSnappiness: 4
   aimReturnSpeed: 3
-  rotationalKickback: 1
-  rotationalKickbackReturnSpeed: 0.1
-  positionalKickback: 0.8
-  positionalKickbackReturnSpeed: 1
-  magnitude: 0.1
+  swayIntensity: 0.1
+  aimSwayIntensity: 0.05
+  rotKick: 4
+  rotKickReturnSpeed: 4
+  aimRotKick: 4
+  aimRotKickReturnSpeed: 8
+  posKick: 3
+  posKickReturnSpeed: 1.2
+  aimPosKick: 2
+  aimPosKickReturnSpeed: 1
+  magnitude: 0.05
   roughness: 1
   fadeInTime: 0.1
   fadeOutTime: 1
@@ -60,6 +66,6 @@ MonoBehaviour:
     type: 3}
   muzzleFlashPrefab: {fileID: 0}
   gunshotSounds:
-  - {fileID: 8300000, guid: 4b6505ac13a67654888d1aa95f86fd39, type: 3}
+  - {fileID: 8300000, guid: 15c37b49bab8eb8469b56caaf63cb385, type: 3}
   pitchRandomization: 0.15
   volume: 1
