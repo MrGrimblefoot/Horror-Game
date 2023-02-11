@@ -21,7 +21,7 @@ public class WeaponSystem : MonoBehaviour
 
     #region Shooting
     private int bulletsToShoot;
-    [SerializeField] private Camera cam;
+    private Camera cam;
     private Camera weaponCam;
     private GameObject sniperCam;
     private RaycastHit hit;
@@ -30,7 +30,6 @@ public class WeaponSystem : MonoBehaviour
     public bool isReloading;
     public bool hasResetRecoilPattern;
     private float currentCooldown;
-    private Vector3 tempSpread;
     //[SerializeField] private string damageTag1, damageTag2, damageTag3;
     [SerializeField] private int damageLayer1, damageLayer2;
     #endregion
@@ -318,7 +317,7 @@ public class WeaponSystem : MonoBehaviour
         currentCooldown = currentGunData.fireRate;
 
         //bullet spread
-        tempSpread = cam.transform.position + cam.transform.forward * 1000f;
+        Vector3 tempSpread = cam.transform.position + cam.transform.forward * 1000f;
         tempSpread += Random.Range(-currentGunData.bulletSpread, currentGunData.bulletSpread) * cam.transform.up;
         tempSpread += Random.Range(-currentGunData.bulletSpread, currentGunData.bulletSpread) * cam.transform.right;
         tempSpread -= cam.transform.position;
@@ -428,11 +427,4 @@ public class WeaponSystem : MonoBehaviour
         currentGunData.currentAmmoStash = currentGunData.maxAmmoStash;
     }
     #endregion
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        if(tempSpread != null && cam != null)
-        Gizmos.DrawLine(cam.transform.position, new Vector3(tempSpread.x, tempSpread.y, tempSpread.z) * 100);
-    }
 }
