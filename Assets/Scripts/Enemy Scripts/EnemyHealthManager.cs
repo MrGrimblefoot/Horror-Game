@@ -47,7 +47,14 @@ public class EnemyHealthManager : MonoBehaviour
     {
         Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
 
-        foreach (Collider c in colliders) { if (c.gameObject != this.gameObject && c.gameObject.layer != 2) { RagdollParts.Add(c); } }
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject != this.gameObject && c.gameObject.layer != 2)
+            {
+                RagdollParts.Add(c);
+                c.attachedRigidbody.isKinematic = true;
+            }
+        }
     }
 
     public void DamageEnemy(float damage)
@@ -110,6 +117,7 @@ public class EnemyHealthManager : MonoBehaviour
         foreach (Collider c in RagdollParts)
         {
             c.isTrigger = false;
+            c.attachedRigidbody.isKinematic = false;
             c.attachedRigidbody.velocity = Vector3.zero;
             c.GetComponent<EnemyBodyPartHealthManager>().canDie = false;
         }
