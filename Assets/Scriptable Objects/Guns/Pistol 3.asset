@@ -19,7 +19,7 @@ MonoBehaviour:
   isMelee: 0
   magazineSize: 10
   maxAmmoStash: 40
-  currentAmmoStash: 26
+  currentAmmoStash: 32
   currentBulletsInMagazine: 10
   reloadTime: 1
   isAutomatic: 0
@@ -46,17 +46,17 @@ MonoBehaviour:
   - {x: -4, y: 0, z: 0}
   snappiness: 7
   returnSpeed: 2
-  aimSnappiness: 10
+  aimSnappiness: 12
   aimReturnSpeed: 4
-  swayIntensity: 0.1
-  aimSwayIntensity: 0.07
-  rotKick: 20
+  swayIntensity: 0.4
+  aimSwayIntensity: 0.08
+  rotKick: 8
   rotKickReturnSpeed: 10
-  aimRotKick: 9
+  aimRotKick: 8
   aimRotKickReturnSpeed: 13
   posKick: 1
-  posKickReturnSpeed: 0
-  aimPosKick: 1
+  posKickReturnSpeed: 1
+  aimPosKick: 3
   aimPosKickReturnSpeed: 1
   magnitude: 0.05
   roughness: 0.5

@@ -250,17 +250,20 @@ public class WeaponSystem : MonoBehaviour
 
     private IEnumerator HandleReload()
     {
-        isReloading = true;
-        currentWeapon.SetActive(false);
-        //Debug.Log("Wating " + currentGunData.reloadTime + " second(s) to reload!");
+        if(currentWeapon != null)
+        {
+            isReloading = true;
+            currentWeapon.SetActive(false);
+            //Debug.Log("Wating " + currentGunData.reloadTime + " second(s) to reload!");
 
-        yield return new WaitForSeconds(currentGunData.reloadTime);
+            yield return new WaitForSeconds(currentGunData.reloadTime);
 
-        //Debug.Log("Reloading!");
-        currentGunData.Reload();
-        currentWeapon.SetActive(true);
-        //recoilScript.hasResetRecoilPattern = true;
-        isReloading = false;
+            //Debug.Log("Reloading!");
+            currentGunData.Reload();
+            currentWeapon.SetActive(true);
+            //recoilScript.hasResetRecoilPattern = true;
+            isReloading = false;
+        }
     }
 
     public void Aim(bool isAiming)

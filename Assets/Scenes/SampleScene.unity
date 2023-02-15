@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadout:
   - {fileID: 11400000, guid: 15a3a8c883c82e743827d1b32d4e14fb, type: 2}
-  - {fileID: 11400000, guid: 0e5d3eee8211fec41a02eff6a8af2e32, type: 2}
+  - {fileID: 11400000, guid: 642071f50c8671048bed5d1d39d9957f, type: 2}
   currentGunData: {fileID: 0}
   currentWeapon: {fileID: 0}
   shooting: 0
