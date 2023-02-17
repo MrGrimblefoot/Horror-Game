@@ -19,7 +19,7 @@ MonoBehaviour:
   isMelee: 0
   magazineSize: 10
   maxAmmoStash: 40
-  currentAmmoStash: 32
+  currentAmmoStash: 40
   currentBulletsInMagazine: 10
   reloadTime: 1
   isAutomatic: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   weaponCamZoomMultiplier: 2
   sensitivityMultiplier: 1
   aimSensitivityMultiplier: 1
-  damage: 55
+  damage: 40
   bulletForce: 5
   canBeShot:
     serializedVersion: 2
@@ -42,13 +42,13 @@ MonoBehaviour:
   randomizeRecoil: 0
   randomRecoilConstraints: {x: 0.1, y: 0.1}
   recoilPattern:
-  - {x: -4, y: 0, z: 0}
-  - {x: -4, y: 0, z: 0}
+  - {x: -2, y: 0, z: 0}
+  - {x: -2, y: 0, z: 0}
   snappiness: 7
   returnSpeed: 2
   aimSnappiness: 12
   aimReturnSpeed: 4
-  swayIntensity: 0.4
+  swayIntensity: 0.3
   aimSwayIntensity: 0.08
   rotKick: 8
   rotKickReturnSpeed: 10
@@ -66,6 +66,7 @@ MonoBehaviour:
     type: 3}
   muzzleFlashPrefab: {fileID: 0}
   gunshotSounds:
-  - {fileID: 8300000, guid: 15c37b49bab8eb8469b56caaf63cb385, type: 3}
-  pitchRandomization: 0.09
+  - {fileID: 8300000, guid: 19a873e01d8f14d489e0ddadf343d792, type: 3}
+  - {fileID: 8300000, guid: 49b13998030ce1e4ebb50a42a40b9b92, type: 3}
+  pitchRandomization: 0.1
   volume: 1

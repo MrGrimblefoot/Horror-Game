@@ -7,10 +7,12 @@ public class EnemyHealthManager : MonoBehaviour
     [Header("Health")]
     public bool isDead;
     public float deathDelay;
-    public float enemyHealth;
+    public float enemyCurrentHealth;
+    public float enemyMaxHealth;
     public float bodyPartHealth = 100;
-    [SerializeField] private Color fullHealthColor, halfHealthColor, lowHealthColor, deadHealthColor;
-    [SerializeField] private float fullHealthIntensity, halfHealthIntensity, lowHealthIntensity, deadHealthIntensity;
+    [SerializeField] private float highHealthPercentage, halfHealthPercentage, lowHealthPercentage;
+    [SerializeField] private Color shieldHealthColor, highHealthColor, halfHealthColor, lowHealthColor, deadHealthColor;
+    [SerializeField] private float shieldHealthIntensity, highHealthIntensity, halfHealthIntensity, lowHealthIntensity, deadHealthIntensity;
 
     public List<Collider> RagdollParts = new List<Collider>();
 
@@ -30,6 +32,7 @@ public class EnemyHealthManager : MonoBehaviour
         mat2 = GetComponentInChildren<SkinnedMeshRenderer>().materials[1];
         anim.enabled = true;
         isDead = false;
+        enemyCurrentHealth = enemyMaxHealth;
         SetRagdollParts();
     }
 
@@ -61,14 +64,14 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (!isDead)
         {
-            enemyHealth -= damage;
+            enemyCurrentHealth -= damage;
             anim.SetTrigger("TakeHit");
-            print("I took " + damage + " damage!");
+            //print("I took " + damage + " damage!");
             HandleColorChange();
 
-            if (enemyHealth <= 0)
+            if (enemyCurrentHealth <= 0)
             {
-                enemyHealth = 0;
+                enemyCurrentHealth = 0;
                 Die();
             }
             else { anim.SetTrigger("TakeHit"); }
@@ -80,27 +83,33 @@ public class EnemyHealthManager : MonoBehaviour
         mat1.EnableKeyword("_EMISSION");
         mat2.EnableKeyword("_EMISSION");
 
-        if (enemyHealth == 100)
+        if(enemyCurrentHealth == enemyMaxHealth)
         {
-            print("Full Health");
-            mat1.SetColor("_EmissionColor", fullHealthColor * fullHealthIntensity);
-            mat2.SetColor("_EmissionColor", fullHealthColor * fullHealthIntensity);
+            //print("Shield");
+            mat1.SetColor("_EmissionColor", shieldHealthColor * shieldHealthIntensity);
+            mat2.SetColor("_EmissionColor", shieldHealthColor * shieldHealthIntensity);
         }
-        else if(enemyHealth < 100 && enemyHealth > 25)
+        else if (enemyCurrentHealth <= (enemyMaxHealth * highHealthPercentage) && enemyCurrentHealth > (enemyMaxHealth * halfHealthPercentage))
         {
-            print("Mid Health");
+            //print("High Health");
+            mat1.SetColor("_EmissionColor", highHealthColor * highHealthIntensity);
+            mat2.SetColor("_EmissionColor", highHealthColor * highHealthIntensity);
+        }
+        else if(enemyCurrentHealth <= (enemyMaxHealth * halfHealthPercentage) && enemyCurrentHealth > (enemyMaxHealth * lowHealthPercentage))
+        {
+            //print("Mid Health");
             mat1.SetColor("_EmissionColor", halfHealthColor * halfHealthIntensity);
             mat2.SetColor("_EmissionColor", halfHealthColor * halfHealthIntensity);
         }
-        else if(enemyHealth < 26 && enemyHealth > 0)
+        else if(enemyCurrentHealth <= (enemyMaxHealth * lowHealthPercentage) && enemyCurrentHealth > 0)
         {
-            print("Low Health");
+            //print("Low Health");
             mat1.SetColor("_EmissionColor", lowHealthColor * lowHealthIntensity);
             mat2.SetColor("_EmissionColor", lowHealthColor * lowHealthIntensity);
         }
-        else if(enemyHealth <= 0)
+        else if(enemyCurrentHealth <= 0)
         {
-            print("Dead");
+            //print("Dead");
             mat1.SetColor("_EmissionColor", deadHealthColor * deadHealthIntensity);
             mat2.SetColor("_EmissionColor", deadHealthColor * deadHealthIntensity);
         }

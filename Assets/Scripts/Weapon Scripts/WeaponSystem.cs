@@ -92,6 +92,7 @@ public class WeaponSystem : MonoBehaviour
         basicInputActions.Player.Fire.Enable();
         basicInputActions.Player.Weapon1.Enable();
         basicInputActions.Player.Weapon2.Enable();
+        basicInputActions.Player.Weapon3.Enable();
         OnReplenishAmmo += ReplenishAmmo;
     }
 
@@ -101,6 +102,7 @@ public class WeaponSystem : MonoBehaviour
         basicInputActions.Player.Fire.Disable();
         basicInputActions.Player.Weapon1.Disable();
         basicInputActions.Player.Weapon2.Disable();
+        basicInputActions.Player.Weapon3.Disable();
         OnReplenishAmmo -= ReplenishAmmo;
     }
 
@@ -124,6 +126,7 @@ public class WeaponSystem : MonoBehaviour
         basicInputActions.Player.Reload.performed += Reload;
         basicInputActions.Player.Weapon1.performed += Equip1;
         basicInputActions.Player.Weapon2.performed += Equip2;
+        basicInputActions.Player.Weapon3.performed += Equip3;
 
         #endregion
 
@@ -177,29 +180,18 @@ public class WeaponSystem : MonoBehaviour
                     if (readyToShoot && shooting && !isReloading && currentCooldown <= 0 && currentGunData.currentBulletsInMagazine <= 0 && currentGunData.currentAmmoStash > 0) { StartCoroutine(HandleReload()); }
                 }
             }
-
-            //if (aiming)
-            //{
-            //    currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
-            //        Vector3.zero,Time.deltaTime * currentGunData.aimPosKickReturnSpeed * 100);
-            //}
-            //else
-            //{
-            //    currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition,
-            //        Vector3.zero, Time.deltaTime * currentGunData.posKickReturnSpeed * 100);
-            //}
         }
     }
 
     private void Equip1(InputAction.CallbackContext context) { StartCoroutine(Equip(0)); }
     private void Equip2(InputAction.CallbackContext context) { StartCoroutine(Equip(1)); }
+    private void Equip3(InputAction.CallbackContext context) { StartCoroutine(Equip(2)); }
 
     public IEnumerator Equip(int p_ind)
     {
-        if (!isSwitching)
+        if (!isSwitching && !isReloading)
         {
             isSwitching = true;
-            if (isReloading) { yield break; }
             if (currentWeapon != null)
             {
                 if (currentGunData.isMelee) { currentWeapon.GetComponentInChildren<Animator>().SetTrigger("Stow"); }
@@ -235,6 +227,8 @@ public class WeaponSystem : MonoBehaviour
             readyToShoot = true;
             isSwitching = false;
         }
+
+        StopCoroutine(Equip(p_ind));
     }
 
     private void ChangeLayersRecursively(GameObject p_target, int p_layer)
@@ -387,7 +381,7 @@ public class WeaponSystem : MonoBehaviour
 
     private void PlayGunshotSound()
     {
-        sfx.clip = currentGunData.gunshotSounds[Random.Range(0, currentGunData.gunshotSounds.Length - 1)];
+        sfx.clip = currentGunData.gunshotSounds[Random.Range(0, currentGunData.gunshotSounds.Length/* - 1*/)];
         sfx.pitch = 1 - currentGunData.pitchRandomization + Random.Range(-currentGunData.pitchRandomization, currentGunData.pitchRandomization);
         sfx.PlayOneShot(sfx.clip, currentGunData.volume);
     }
@@ -404,25 +398,6 @@ public class WeaponSystem : MonoBehaviour
         GetComponent<PlayerPolishManager>().ApplyDamage(damage);
         //Debug.Log(GetComponent<PlayerController>().currentHealth);
     }
-
-    //private IEnumerator SpawnTrail(TrailRenderer Trail, RaycastHit Hit)
-    //{
-    //    float time = 0;
-    //    Vector3 startPosition = Trail.transform.position;
-        
-    //    while (time < 1)
-    //    {
-    //        Trail.transform.position = Vector3.Lerp(startPosition, Hit.point, time);
-    //        time += Time.deltaTime / currentGunData.trailTime;
-
-    //        yield return null;
-    //    }
-
-    //    Trail.transform.position = Hit.point;
-    //    //Instantiate(impactParticalSystem, Hit.point, Quaternion.LookRotation(Hit.normal));
-
-    //    Destroy(Trail.gameObject, Trail.time);
-    //}
 
     private void ReplenishAmmo()
     {

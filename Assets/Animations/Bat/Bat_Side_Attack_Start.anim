@@ -241,7 +241,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Baseball Bat
+    path: Baseball Bat/Right Hand Target/Baseball Bat 1
     classID: 65
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -281,7 +281,7 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1493495841
+      path: 68405647
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 65
@@ -967,7 +967,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Baseball Bat
+    path: Baseball Bat/Right Hand Target/Baseball Bat 1
     classID: 65
     script: {fileID: 0}
   m_EulerEditorCurves:

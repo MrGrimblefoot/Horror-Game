@@ -23,14 +23,14 @@ public class MeleeDamageHandler : MonoBehaviour
     private void OnCollisionEnter (Collision other)
     {
         CheckForEnemy(other);
-        print("Checking for enemy!");
+        //print("Checking for enemy!");
     }
 
     private void CheckForEnemy(Collision other)
     {
         if (!hasDealtDamage)
         {
-            if (other.collider.gameObject.layer == damageLayer1 || other.collider.gameObject.layer == damageLayer2)
+            if (other.collider.gameObject.layer == damageLayer1/* || other.collider.gameObject.layer == damageLayer2*/)
             {
                 print(other.gameObject.name);
                 other.gameObject.GetComponent<EnemyBodyPartHealthManager>().DamageEnemyPart(damage);
@@ -38,7 +38,7 @@ public class MeleeDamageHandler : MonoBehaviour
                 hasDealtDamage = true;
             }
         }
-        else { print("Already dealt damage!"); }
+        //else { print("Already dealt damage!"); }
     }
 
     public void ResetHitmarker() { hasMadeSound = false; }

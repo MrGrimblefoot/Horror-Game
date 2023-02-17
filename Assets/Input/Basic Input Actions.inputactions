@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Weapon 3",
+                    "type": "Button",
+                    "id": "c8945ad8-ed9a-47e9-9cda-f6d0a56bb532",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
                     "id": "e7da34df-b966-44e6-ac77-4de3105e80fb",
@@ -288,6 +297,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Spawn Zombie",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62c94bae-4e69-4f64-842e-1696668839df",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon 3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
