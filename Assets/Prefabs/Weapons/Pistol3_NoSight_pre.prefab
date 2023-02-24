@@ -687,7 +687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5991216105314816187}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.192, z: 0.9}
+  m_LocalPosition: {x: 0, y: -0.17, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1014,7 +1014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3557280080877915320}
   m_Layer: 6
-  m_Name: Pistol3_pre
+  m_Name: Pistol3_NoSight_pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,6 +1400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Reflex Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322568466699750478, guid: bc91655c74cf4a54288a9e3b055f5523,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8661657111718123252, guid: bc91655c74cf4a54288a9e3b055f5523,
         type: 3}

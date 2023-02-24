@@ -12,7 +12,7 @@ public class Weapon : ScriptableObject
     public string gunName;
     [Tooltip("This is what model is Instantiated.")]
     public GameObject prefab;
-    [Tooltip("This is not recoil. This is for things like shotguns.")]
+    [Tooltip("This is not recoil. This is for things like shotguns. For shotguns: 12 full choke, 15 modified choke, 18 for improved cylinder choke")]
     public float bulletSpread;
     [Tooltip("This controls how fast the gun fires.")]
     public float fireRate;

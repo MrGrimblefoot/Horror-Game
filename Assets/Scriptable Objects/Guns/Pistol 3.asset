@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Pistol 3
   m_EditorClassIdentifier: 
   gunName: Pistol
-  prefab: {fileID: 8920032279334911353, guid: 257244c699d57f547b76359753d0c595, type: 3}
-  bulletSpread: 0
+  prefab: {fileID: 8920032279334911353, guid: 723d7f284f0952c4b883bf54f7dc8a87, type: 3}
+  bulletSpread: 1
   fireRate: 0.2
   isMelee: 0
   magazineSize: 10
   maxAmmoStash: 40
-  currentAmmoStash: 40
-  currentBulletsInMagazine: 10
+  currentAmmoStash: 0
+  currentBulletsInMagazine: 4
   reloadTime: 1
   isAutomatic: 0
   isBurst: 1
@@ -49,10 +49,10 @@ MonoBehaviour:
   aimSnappiness: 12
   aimReturnSpeed: 4
   swayIntensity: 0.3
-  aimSwayIntensity: 0.08
+  aimSwayIntensity: 0.04
   rotKick: 8
   rotKickReturnSpeed: 10
-  aimRotKick: 8
+  aimRotKick: 1.5
   aimRotKickReturnSpeed: 13
   posKick: 1
   posKickReturnSpeed: 1
@@ -68,5 +68,5 @@ MonoBehaviour:
   gunshotSounds:
   - {fileID: 8300000, guid: 19a873e01d8f14d489e0ddadf343d792, type: 3}
   - {fileID: 8300000, guid: 49b13998030ce1e4ebb50a42a40b9b92, type: 3}
-  pitchRandomization: 0.1
+  pitchRandomization: 0.07
   volume: 1
