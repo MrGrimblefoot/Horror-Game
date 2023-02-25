@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2081677038}
-  m_IndirectSpecularColor: {r: 0.0035934066, g: 0.021009142, b: 0.046854045, a: 1}
+  m_IndirectSpecularColor: {r: 0.000577118, g: 0.0030357924, b: 0.0140500385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2741,7 +2741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadout:
   - {fileID: 11400000, guid: 15a3a8c883c82e743827d1b32d4e14fb, type: 2}
-  - {fileID: 11400000, guid: 642071f50c8671048bed5d1d39d9957f, type: 2}
+  - {fileID: 11400000, guid: 034d8bb1104fbcc47900c5809b2e1c3c, type: 2}
   - {fileID: 11400000, guid: 0e5d3eee8211fec41a02eff6a8af2e32, type: 2}
   currentGunData: {fileID: 0}
   currentWeapon: {fileID: 0}

@@ -353,6 +353,11 @@ public class WeaponSystem : MonoBehaviour
         {
             //gunshot sound
             PlayGunshotSound();
+            if(currentGunData.muzzleFlashPrefab != null)
+            {
+                GameObject muzzleFlash = Instantiate(currentGunData.muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                Destroy(muzzleFlash, 0.15f);
+            }
             //recoil
             recoilScript.RecoilFire();
             CameraShaker.Instance.ShakeOnce(currentGunData.magnitude, currentGunData.roughness, currentGunData.fadeInTime, currentGunData.fadeOutTime);

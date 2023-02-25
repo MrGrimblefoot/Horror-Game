@@ -64,7 +64,8 @@ MonoBehaviour:
   fadeOutTime: 1
   bulletHolePrefab: {fileID: 5937179703506891156, guid: a166e55fbbd0cb842b85a3c807ceb431,
     type: 3}
-  muzzleFlashPrefab: {fileID: 0}
+  muzzleFlashPrefab: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4,
+    type: 3}
   gunshotSounds:
   - {fileID: 8300000, guid: c35e8e2f5af4b7d46a643e1e319c60d1, type: 3}
   pitchRandomization: 0.12
