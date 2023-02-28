@@ -80,6 +80,7 @@ public class WeaponSystem : MonoBehaviour
     [SerializeField] private TrailRenderer bulletTrail;
     [SerializeField] private Color normalColor;
     [SerializeField] private Color headshotColor;
+    [SerializeField] private ParticleSystem muzzleFlash;
     #endregion
 
     public static Action OnReplenishAmmo;
@@ -133,7 +134,10 @@ public class WeaponSystem : MonoBehaviour
         foreach (Weapon g in loadout) { g.Initialize(); }
         StartCoroutine(Equip(0));
 
-        if (currentWeapon != null) { firePoint = currentWeapon.transform.Find("Anchor/Fire Point"); }
+        if (currentWeapon != null)
+        {
+            firePoint = currentWeapon.transform.Find("Anchor/Fire Point");
+        }
     }
 
     private void Update()
@@ -224,6 +228,7 @@ public class WeaponSystem : MonoBehaviour
 
             targetFOV = 60;
             weaponTargetFOV = 60;
+            if (currentGunData.useMuzzleFlash) { muzzleFlash = FindObjectOfType<ParticleSystem>(); }
             readyToShoot = true;
             isSwitching = false;
         }
@@ -353,11 +358,7 @@ public class WeaponSystem : MonoBehaviour
         {
             //gunshot sound
             PlayGunshotSound();
-            if(currentGunData.muzzleFlashPrefab != null)
-            {
-                GameObject muzzleFlash = Instantiate(currentGunData.muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                Destroy(muzzleFlash, 0.15f);
-            }
+            if(muzzleFlash != null) { muzzleFlash.Play(); }
             //recoil
             recoilScript.RecoilFire();
             CameraShaker.Instance.ShakeOnce(currentGunData.magnitude, currentGunData.roughness, currentGunData.fadeInTime, currentGunData.fadeOutTime);

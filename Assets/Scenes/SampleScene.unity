@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2081677038}
-  m_IndirectSpecularColor: {r: 0.000577118, g: 0.0030357924, b: 0.0140500385, a: 1}
+  m_IndirectSpecularColor: {r: 0.00057711493, g: 0.0030357824, b: 0.014050005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,7 +124,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2104dfab889bb5d47b7c18a27728063e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 234333e1fd7985846afae42930bac506, type: 2}
 --- !u!1001 &61574763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2740,8 +2740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadout:
+  - {fileID: 11400000, guid: 642071f50c8671048bed5d1d39d9957f, type: 2}
   - {fileID: 11400000, guid: 15a3a8c883c82e743827d1b32d4e14fb, type: 2}
-  - {fileID: 11400000, guid: 034d8bb1104fbcc47900c5809b2e1c3c, type: 2}
   - {fileID: 11400000, guid: 0e5d3eee8211fec41a02eff6a8af2e32, type: 2}
   currentGunData: {fileID: 0}
   currentWeapon: {fileID: 0}
@@ -2762,6 +2762,7 @@ MonoBehaviour:
     type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   headshotColor: {r: 1, g: 0.038955443, b: 0, a: 1}
+  muzzleFlash: {fileID: 0}
 --- !u!4 &6881266926077782505
 Transform:
   m_ObjectHideFlags: 0

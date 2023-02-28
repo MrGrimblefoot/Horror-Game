@@ -33,7 +33,7 @@ MonoBehaviour:
   weaponCamZoomMultiplier: 1
   sensitivityMultiplier: 1
   aimSensitivityMultiplier: 1
-  damage: 60
+  damage: 40
   bulletForce: 1
   canBeShot:
     serializedVersion: 2
@@ -62,7 +62,7 @@ MonoBehaviour:
   fadeOutTime: 1
   bulletHolePrefab: {fileID: 5937179703506891156, guid: 616f033eb0f621c45a93486fa3c07f00,
     type: 3}
-  muzzleFlashPrefab: {fileID: 0}
+  useMuzzleFlash: 0
   gunshotSounds: []
   pitchRandomization: 1
   volume: 1

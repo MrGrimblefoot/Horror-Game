@@ -140,8 +140,9 @@ public class Weapon : ScriptableObject
     [Header("Decals")]
     [Tooltip("This is the bullet hole prefab that is Instantiated.")]
     public GameObject bulletHolePrefab;
-    [Tooltip("This is the muzzle flash effect that is Instantiated. Not implimented yet.")]
-    public GameObject muzzleFlashPrefab;
+    public bool useMuzzleFlash;
+    //[Tooltip("This is the muzzle flash effect that is Instantiated. Not implimented yet.")]
+    //public ParticleSystem muzzleFlashPrefab;
     #endregion
 
     #region Audio

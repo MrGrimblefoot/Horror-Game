@@ -19,8 +19,8 @@ MonoBehaviour:
   isMelee: 0
   magazineSize: 10
   maxAmmoStash: 40
-  currentAmmoStash: 0
-  currentBulletsInMagazine: 4
+  currentAmmoStash: 31
+  currentBulletsInMagazine: 10
   reloadTime: 1
   isAutomatic: 0
   isBurst: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
   rotKick: 8
   rotKickReturnSpeed: 10
   aimRotKick: 1.5
-  aimRotKickReturnSpeed: 13
+  aimRotKickReturnSpeed: 15
   posKick: 1
   posKickReturnSpeed: 1
   aimPosKick: 3
@@ -64,7 +64,7 @@ MonoBehaviour:
   fadeOutTime: 0.8
   bulletHolePrefab: {fileID: 5937179703506891156, guid: a166e55fbbd0cb842b85a3c807ceb431,
     type: 3}
-  muzzleFlashPrefab: {fileID: 0}
+  useMuzzleFlash: 0
   gunshotSounds:
   - {fileID: 8300000, guid: 19a873e01d8f14d489e0ddadf343d792, type: 3}
   - {fileID: 8300000, guid: 49b13998030ce1e4ebb50a42a40b9b92, type: 3}
