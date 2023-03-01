@@ -34,7 +34,7 @@ MonoBehaviour:
   sensitivityMultiplier: 1
   aimSensitivityMultiplier: 1
   damage: 40
-  bulletForce: 1
+  bulletForce: 0
   canBeShot:
     serializedVersion: 2
     m_Bits: 4233

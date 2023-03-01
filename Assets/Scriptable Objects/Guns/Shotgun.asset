@@ -19,8 +19,8 @@ MonoBehaviour:
   isMelee: 0
   magazineSize: 24
   maxAmmoStash: 144
-  currentAmmoStash: 128
-  currentBulletsInMagazine: 16
+  currentAmmoStash: 120
+  currentBulletsInMagazine: 0
   reloadTime: 2
   isAutomatic: 0
   isBurst: 1
