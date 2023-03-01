@@ -19,7 +19,7 @@ MonoBehaviour:
   isMelee: 0
   magazineSize: 24
   maxAmmoStash: 144
-  currentAmmoStash: 120
+  currentAmmoStash: 144
   currentBulletsInMagazine: 0
   reloadTime: 2
   isAutomatic: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   posKickReturnSpeed: 1.2
   aimPosKick: 3
   aimPosKickReturnSpeed: 1
-  magnitude: 0.05
+  magnitude: 0
   roughness: 1
   fadeInTime: 0.1
   fadeOutTime: 1
