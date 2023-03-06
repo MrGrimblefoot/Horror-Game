@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyChaseState : State
 {
+    bool hasAssignedAnim;
     public override State Tick(EnemyStateManager stateManager, EnemySensor sensor, EnemyHealthManager healthManager)
     {
         //Chase target
@@ -13,22 +14,24 @@ public class EnemyChaseState : State
         //if there is a target, start chasing again
         if (!healthManager.isDead)
         {
-            ChaseCurrentTarget(stateManager);
-            RotateTowardsCurrentTarget(stateManager);
+            if(hasAssignedAnim == false) { stateManager.anim.SetFloat("Speed", 1); hasAssignedAnim = true; }
+            NavigateTowardsCurrentTarget(stateManager);
         }
         return this;
     }
 
-    private void ChaseCurrentTarget(EnemyStateManager stateManager)
+    private void NavigateTowardsCurrentTarget(EnemyStateManager stateManager)
     {
-        stateManager.anim.SetFloat("Speed", 1);
-    }
-
-    private void RotateTowardsCurrentTarget(EnemyStateManager stateManager)
-    {
-        //stateManager.navmeshAgent.enabled = true;
+        //Move towards the player
         stateManager.navmeshAgent.SetDestination(stateManager.target.transform.position);
-        stateManager.transform.rotation = Quaternion.Slerp(stateManager.transform.rotation, stateManager.navmeshAgent.transform.rotation,
-            stateManager.rotationSpeed / Time.deltaTime);
+
+        //Rotat towards the player
+        var turnTowardNavSteeringTarget = stateManager.navmeshAgent.steeringTarget;
+
+        Vector3 direction = (turnTowardNavSteeringTarget - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        stateManager.transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * stateManager.rotationSpeed);
+
+        //Thank you InsaneDuane!!! https://forum.unity.com/threads/how-do-i-update-the-rotation-of-a-navmeshagent.707579/
     }
 }

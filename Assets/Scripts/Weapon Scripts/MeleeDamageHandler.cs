@@ -20,7 +20,7 @@ public class MeleeDamageHandler : MonoBehaviour
         hasDealtDamage = false;
     }
 
-    private void OnCollisionEnter (Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         CheckForEnemy(other);
         //print("Checking for enemy!");

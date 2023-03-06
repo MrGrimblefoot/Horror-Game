@@ -252,14 +252,12 @@ public class WeaponSystem : MonoBehaviour
         if(currentWeapon != null)
         {
             isReloading = true;
-            currentWeapon.SetActive(false);
-            //Debug.Log("Wating " + currentGunData.reloadTime + " second(s) to reload!");
+            //currentWeapon.SetActive(false);
 
             yield return new WaitForSeconds(currentGunData.reloadTime);
 
-            //Debug.Log("Reloading!");
             currentGunData.Reload();
-            currentWeapon.SetActive(true);
+            //currentWeapon.SetActive(true);
             //recoilScript.hasResetRecoilPattern = true;
             isReloading = false;
         }

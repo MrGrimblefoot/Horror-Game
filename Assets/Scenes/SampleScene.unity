@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &61574764 stripped
@@ -277,6 +282,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &241619009 stripped
@@ -356,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -567,6 +582,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &819345503 stripped
@@ -696,6 +716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &901611670 stripped
@@ -775,6 +800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -856,6 +886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &982247732 stripped
@@ -935,6 +970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -1113,6 +1153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &1277358473 stripped
@@ -1192,6 +1237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -1362,6 +1412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &1477059939 stripped
@@ -1472,6 +1527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -1730,6 +1790,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &1638361213 stripped
@@ -1810,6 +1875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &1640226135 stripped
@@ -1889,6 +1959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -2167,6 +2242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
 --- !u!4 &2110493941 stripped
@@ -2246,6 +2326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alien (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622251508393071408, guid: 9cfd1d3aec2e5004aad3748424c131b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfd1d3aec2e5004aad3748424c131b8, type: 3}
@@ -3131,7 +3216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
-  weapon: {fileID: 6881266926809616539}
+  weaponHolder: {fileID: 6881266926809616539}
   currentStep: 0
   hasResetRecoilPattern: 0
   recoilResetTimer: 0
@@ -3319,7 +3404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7560471894538283995
 RectTransform:
   m_ObjectHideFlags: 0

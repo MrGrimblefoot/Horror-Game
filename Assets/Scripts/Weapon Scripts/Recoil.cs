@@ -9,7 +9,7 @@ public class Recoil : MonoBehaviour
 
     private WeaponSystem weaponScript;
     public Weapon gun;
-    public GameObject weapon;
+    public GameObject weaponHolder;
 
     public int currentStep;
     public bool hasResetRecoilPattern;
