@@ -15,11 +15,11 @@ MonoBehaviour:
   gunName: Shotgun
   prefab: {fileID: 4648052329620452376, guid: 6ee8238658bd7ff4b87e42217211c7fc, type: 3}
   bulletSpread: 15
-  fireRate: 0.22
+  fireRate: 0.21
   isMelee: 0
   magazineSize: 24
   maxAmmoStash: 144
-  currentAmmoStash: 72
+  currentAmmoStash: 64
   currentBulletsInMagazine: 0
   reloadTime: 2
   isAutomatic: 0
