@@ -17,6 +17,8 @@ public class WeaponSystem : MonoBehaviour
     /*[SerializeField] private*/ public Weapon[] loadout;
     [HideInInspector] public Weapon currentGunData;
     public GameObject currentWeapon;
+    [SerializeField] private GameObject sight;
+    public bool hasSight;
     #endregion
 
     #region Shooting
@@ -196,6 +198,7 @@ public class WeaponSystem : MonoBehaviour
         if (!isSwitching && !isReloading)
         {
             isSwitching = true;
+            if(sight != null) { sight = null; }
             if (currentWeapon != null)
             {
                 if (currentGunData.isMelee) { currentWeapon.GetComponentInChildren<Animator>().SetTrigger("Stow"); }
@@ -226,14 +229,25 @@ public class WeaponSystem : MonoBehaviour
             }
             else { basicInputActions.Player.Fire.performed += _ => shooting = true; }
 
-            targetFOV = 60;
-            weaponTargetFOV = 60;
             if (currentGunData.useMuzzleFlash) { muzzleFlash = FindObjectOfType<ParticleSystem>(); }
             readyToShoot = true;
+
+            HandleSightSpawning();
+
             isSwitching = false;
         }
 
         StopCoroutine(Equip(p_ind));
+    }
+
+    private void HandleSightSpawning()
+    {
+        if (currentGunData.isPistol)
+        {
+            sight = loadout[currentIndex].prefab.transform.Find("Anchor/T77/Reflex Sight").gameObject;
+            if (hasSight) { sight.transform.gameObject.SetActive(false); }
+            else { sight.transform.gameObject.SetActive(true); }
+        }
     }
 
     private void ChangeLayersRecursively(GameObject p_target, int p_layer)
@@ -279,21 +293,24 @@ public class WeaponSystem : MonoBehaviour
         {
             if (isAiming)
             {
-                tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateADS.position, Time.deltaTime * (currentGunData.aimSpeed * currentGunData.aimPosKickReturnSpeed));
+                tempAnchor.position = Vector3.Lerp(tempAnchor.position,
+                    new Vector3(tempStateADS.position.x, hasSight && currentGunData.isPistol ? tempStateADS.position.y + currentGunData.sightOffset : tempStateADS.position.y, tempStateADS.position.z),
+                    Time.deltaTime * (currentGunData.aimSpeed * currentGunData.aimPosKickReturnSpeed));
+                targetFOV = normalFOV / currentGunData.playerCamZoomMultiplier;
+                weaponTargetFOV = normalFOV / currentGunData.weaponCamZoomMultiplier;
                 //cursor.SetActive(false);
-                if (currentGunData.name != "Sniper")
-                {
-                    targetFOV = normalFOV / currentGunData.playerCamZoomMultiplier;
-                    weaponTargetFOV = normalFOV / currentGunData.weaponCamZoomMultiplier;
-                }
-                else { sniperCam.gameObject.SetActive(true); }
+                //if (currentGunData.name != "Sniper")
+                //{
+                //}
+                //else { sniperCam.gameObject.SetActive(true); }
             }
             else
             {
                 tempAnchor.position = Vector3.Lerp(tempAnchor.position, tempStateHip.position, Time.deltaTime * (currentGunData.aimSpeed * currentGunData.posKickReturnSpeed));
                 //cursor.SetActive(true);
-                if (currentGunData.name != "Sniper") { targetFOV = normalFOV; weaponTargetFOV = normalFOV; }
-                else { sniperCam.gameObject.SetActive(false); }
+                /*if (currentGunData.name != "Sniper")*/
+                targetFOV = normalFOV; weaponTargetFOV = normalFOV;
+                //else { sniperCam.gameObject.SetActive(false); }
             }
         }
         else { targetFOV = normalFOV; weaponTargetFOV = normalFOV; }

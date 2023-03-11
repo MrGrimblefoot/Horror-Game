@@ -17,10 +17,11 @@ MonoBehaviour:
   bulletSpread: 1
   fireRate: 0.2
   isMelee: 0
+  isPistol: 1
   magazineSize: 10
   maxAmmoStash: 40
   currentAmmoStash: 40
-  currentBulletsInMagazine: 4
+  currentBulletsInMagazine: 10
   reloadTime: 1
   isAutomatic: 0
   isBurst: 1
@@ -33,6 +34,8 @@ MonoBehaviour:
   weaponCamZoomMultiplier: 2
   sensitivityMultiplier: 1
   aimSensitivityMultiplier: 1
+  sightOffset: -0.022
+  sightGO: {fileID: 8322568466699750478, guid: bc91655c74cf4a54288a9e3b055f5523, type: 3}
   damage: 40
   bulletForce: 3
   canBeShot:

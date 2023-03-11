@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 8661657111718123252}
   m_Layer: 6
   m_Name: Reflex Sight
-  m_TagString: Untagged
+  m_TagString: Sight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,7 +357,7 @@ Transform:
   m_GameObject: {fileID: 8322568466699750478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: -3.25}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.022, y: 0.022, z: 0.022}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1435441700886380082}

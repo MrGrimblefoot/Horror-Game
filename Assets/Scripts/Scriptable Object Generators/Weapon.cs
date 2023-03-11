@@ -18,6 +18,7 @@ public class Weapon : ScriptableObject
     public float fireRate;
     [Tooltip("Make this true if the weapon is melee. If not, ignore this variable.")]
     public bool isMelee;
+    public bool isPistol;
     #endregion
 
     #region Ammo
@@ -66,6 +67,9 @@ public class Weapon : ScriptableObject
     public float sensitivityMultiplier;
     [Tooltip("This controls how much the camera is able to rotate while ADSing. The higher the number, the lower the look speed.")]
     public float aimSensitivityMultiplier;
+    [Tooltip("If there is a sight on the gun, change this. Otherwise leave it at 0.")]
+    public float sightOffset;
+    public GameObject sightGO;
     #endregion
 
     #region Bullet
