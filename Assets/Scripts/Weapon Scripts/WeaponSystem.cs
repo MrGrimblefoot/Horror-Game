@@ -135,6 +135,7 @@ public class WeaponSystem : MonoBehaviour
 
         foreach (Weapon g in loadout) { g.Initialize(); }
         StartCoroutine(Equip(0));
+        normalFOV = camLook.fieldOfView;
 
         if (currentWeapon != null)
         {
@@ -144,10 +145,6 @@ public class WeaponSystem : MonoBehaviour
 
     private void Update()
     {
-        normalFOV = camLook.fieldOfView;
-        if (currentWeapon != null && !currentGunData.isMelee) { ammoCounterText.SetText(currentGunData.GetMag() / currentGunData.bulletsPerTap + " / " + currentGunData.GetStash() / currentGunData.bulletsPerTap); }
-        else { ammoCounterText.SetText(" "); }
-
         if (currentWeapon != null)
         {
             //if (currentGunData.isAutomatic) { shooting = basicInputActions.Player.Movement.ReadValue<bool>(); }
@@ -230,6 +227,8 @@ public class WeaponSystem : MonoBehaviour
             else { basicInputActions.Player.Fire.performed += _ => shooting = true; }
 
             if (currentGunData.useMuzzleFlash) { muzzleFlash = FindObjectOfType<ParticleSystem>(); }
+            UpdateAmmoUI(currentGunData.isMelee);
+
             readyToShoot = true;
 
             HandleSightSpawning();
@@ -238,16 +237,6 @@ public class WeaponSystem : MonoBehaviour
         }
 
         StopCoroutine(Equip(p_ind));
-    }
-
-    private void HandleSightSpawning()
-    {
-        if (currentGunData.isPistol)
-        {
-            sight = loadout[currentIndex].prefab.transform.Find("Anchor/T77/Reflex Sight").gameObject;
-            if (hasSight) { sight.transform.gameObject.SetActive(false); }
-            else { sight.transform.gameObject.SetActive(true); }
-        }
     }
 
     private void ChangeLayersRecursively(GameObject p_target, int p_layer)
@@ -271,8 +260,8 @@ public class WeaponSystem : MonoBehaviour
             yield return new WaitForSeconds(currentGunData.reloadTime);
 
             currentGunData.Reload();
+            UpdateAmmoUI(false);
             //currentWeapon.SetActive(true);
-            //recoilScript.hasResetRecoilPattern = true;
             isReloading = false;
         }
     }
@@ -343,17 +332,14 @@ public class WeaponSystem : MonoBehaviour
         //raycast
         if (Physics.Raycast(cam.transform.position, tempSpread, out hit, 1000f, currentGunData.canBeShot))
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
 
             //TrailRenderer trail = Instantiate(bulletTrail, firePoint.position, firePoint.rotation);
             //StartCoroutine(SpawnTrail(trail, hit));
 
-            //if (hit.collider.CompareTag(damageTag1) || hit.collider.CompareTag(damageTag2) || hit.collider.CompareTag(damageTag3))
             if (hit.collider.gameObject.layer == damageLayer1 || hit.collider.gameObject.layer == damageLayer2)
             {
-                print("is enemy");
                 hit.collider.GetComponent<EnemyBodyPartHealthManager>().DamageEnemyPart(currentGunData.damage);
-                print("delt damage");
                 if (hit.collider.CompareTag("EnemyHead")) { HitmarkerEffect(true); }
                 else { HitmarkerEffect(false); }
             }
@@ -374,6 +360,7 @@ public class WeaponSystem : MonoBehaviour
             //gunshot sound
             PlayGunshotSound();
             if(muzzleFlash != null) { muzzleFlash.Play(); }
+            UpdateAmmoUI(false);
             //recoil
             recoilScript.RecoilFire();
             CameraShaker.Instance.ShakeOnce(currentGunData.magnitude, currentGunData.roughness, currentGunData.fadeInTime, currentGunData.fadeOutTime);
@@ -383,6 +370,16 @@ public class WeaponSystem : MonoBehaviour
     }
 
     private void ResetShot() { readyToShoot = true; /*hasResetRecoilPattern = true;*/ if (!currentGunData.isAutomatic) { shooting = false; } }
+
+    private void HandleSightSpawning()
+    {
+        if (currentGunData.isPistol)
+        {
+            GameObject sight = currentWeapon.transform.Find("Anchor/T77/Reflex Sight").gameObject;
+            if (hasSight) { sight.SetActive(true); }
+            else { sight.SetActive(false); }
+        }
+    }
 
     public void HitmarkerEffect(bool heashot)
     {
@@ -412,6 +409,15 @@ public class WeaponSystem : MonoBehaviour
         GameObject bulletHole = Instantiate(currentGunData.bulletHolePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
         bulletHole.transform.parent = hit.collider.gameObject.transform;
         Destroy(bulletHole, 4f);
+    }
+
+    private void UpdateAmmoUI(bool isMelee)
+    {
+        if (currentWeapon != null)
+        {
+            if (!isMelee) { ammoCounterText.SetText(currentGunData.GetMag() / currentGunData.bulletsPerTap + " / " + currentGunData.GetStash() / currentGunData.bulletsPerTap); }
+            else { ammoCounterText.SetText(" "); }
+        }
     }
 
     private void DamageEnemyPlayer(int damage)

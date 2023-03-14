@@ -51,7 +51,7 @@ MonoBehaviour:
   returnSpeed: 2
   aimSnappiness: 12
   aimReturnSpeed: 4
-  swayIntensity: 0.3
+  swayIntensity: 0.2
   aimSwayIntensity: 0.04
   rotKick: 8
   rotKickReturnSpeed: 10
